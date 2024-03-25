@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #c1e8ff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+    align-items: center; /* Esto centra verticalmente */
+}
+
+.header img {
+    max-width: 200px;
+}
+
+.registro-btn {
+    background-color: #1DA1F2;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.contenido {
+    padding: 20px;
+}
+.contenido .separador {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+.contenido .texto {
+    margin-bottom: 20px;
+}

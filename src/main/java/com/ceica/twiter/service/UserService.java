@@ -23,11 +23,12 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     private AuthorityRepository authorityRepository;
     private BCryptPasswordEncoder passwordEncoder;
+
     @Autowired
     public UserService(UserRepository userRepository, AuthorityRepository authorityRepository) {
         this.userRepository = userRepository;
-        this.authorityRepository=authorityRepository;
-        passwordEncoder=new BCryptPasswordEncoder();
+        this.authorityRepository = authorityRepository;
+        passwordEncoder = new BCryptPasswordEncoder();
     }
 
     @Override
@@ -39,26 +40,25 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
-                getAuthorities(user.getAuthorities())
+                getAuthorities(user.getRol_id())
         );
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities(Collection<Authority> authorities) {
+    private Collection<? extends GrantedAuthority> getAuthorities(Integer idrol) {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        for (Authority authority : authorities) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(authority.getAuthority()));
-        }
+        if(idrol==1)
+            grantedAuthorities.add(new SimpleGrantedAuthority("admin"));
+        else
+            grantedAuthorities.add(new SimpleGrantedAuthority("user"));
         return grantedAuthorities;
     }
 
     public void crearUsuario(User user) {
+        //Encriptamos password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRol_id(2);
 
-       User newUser=userRepository.save(user);
-       //Encriptamos password
-        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
-       Authority authority=new Authority();
-       authority.setAuthority("USER");
-       authority.setUser_id(newUser.getId());
-        authorityRepository.save(authority);
+        User newUser = userRepository.save(user);
+
     }
 }

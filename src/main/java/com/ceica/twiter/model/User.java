@@ -17,10 +17,8 @@ public class User {
     @Column(name = "enabled")
     private Boolean enabled;
 
+    private Integer rol_id;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private Collection<Authority> authorities;
 
     public User() {
     }
@@ -46,8 +44,6 @@ public class User {
     }
 
     public void setPassword(String password) {
-
-
         this.password = password;
     }
 
@@ -59,12 +55,12 @@ public class User {
         this.enabled = enabled;
     }
 
-    public Collection<Authority> getAuthorities() {
-        return authorities;
+    public Integer getRol_id() {
+        return rol_id;
     }
 
-    public void setAuthorities(Collection<Authority> authorities) {
-        this.authorities = authorities;
+    public void setRol_id(Integer rol_id) {
+        this.rol_id = rol_id;
     }
 
     @Override
@@ -74,7 +70,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
-                ", authorities=" + authorities +
+                ", rol_id=" + rol_id +
                 '}';
     }
 }
