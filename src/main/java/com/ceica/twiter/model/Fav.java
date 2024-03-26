@@ -5,17 +5,17 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="twit")
-public class Twit {
+@Table(name="fav")
+public class Fav {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String twitext;
-
-    private Integer user_id;
     private Date date;
+    private Integer twit_id;
+    private Integer user_id;
 
-    public Twit() {
+    public Fav() {
     }
 
     public Integer getId() {
@@ -26,7 +26,21 @@ public class Twit {
         this.id = id;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Integer getTwit_id() {
+        return twit_id;
+    }
+
+    public void setTwit_id(Integer twit_id) {
+        this.twit_id = twit_id;
+    }
 
     public Integer getUser_id() {
         return user_id;
@@ -36,29 +50,13 @@ public class Twit {
         this.user_id = user_id;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getTwitext() {
-        return twitext;
-    }
-
-    public void setTwitext(String twitext) {
-        this.twitext = twitext;
-    }
-
     @Override
     public String toString() {
-        return "Twit{" +
+        return "Fav{" +
                 "id=" + id +
-                ", twitext='" + twitext + '\'' +
-                ", user_id=" + user_id +
                 ", date=" + date +
+                ", twit_id=" + twit_id +
+                ", user_id=" + user_id +
                 '}';
     }
 }

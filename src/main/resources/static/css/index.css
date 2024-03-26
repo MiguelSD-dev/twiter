@@ -1,23 +1,27 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    max-width: 900px;
+    background: #f3f3f3;
 }
+
 .header {
     background-color: #c1e8ff;
     color: #fff;
     padding: 20px;
     text-align: center;
     display: flex;
-    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
-    align-items: center; /* Esto centra verticalmente */
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header img {
-    max-width: 200px;
+    max-width: 100px;
 }
 
-.registro-btn {
+.login-btn,
+.exit-btn,
+.publicar-btn {
     background-color: #1DA1F2;
     border: none;
     color: white;
@@ -28,14 +32,79 @@ body {
     font-size: 16px;
     margin-top: 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
+
 .contenido {
     padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 .contenido .separador {
     border-top: 1px solid #ccc;
     margin: 20px 0;
 }
 .contenido .texto {
+    padding: 10px;
     margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
+.contenido .main {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.newtwit {
+    flex-grow: 1; /* Para que ocupe todo el espacio restante */
+    display: flex; /* Para que los elementos se alineen horizontalmente */
+    justify-content: space-between; /* Para que los elementos se distribuyan en el espacio disponible */
+    align-items: center; /* Para centrar verticalmente el contenido */
+}
+
+.newtwit textarea {
+    width: calc(100% - 100px); /* Ajusta el ancho del textarea, dejando espacio para el botón */
+    resize: none;
+    box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+    padding: 10px;
+}
+
+.newtwit input[type="submit"] {
+    background-color: #1DA1F2;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.texto {
+    display: flex;
+}
+.main {
+    display: flex;
+}
+
+.foto-perfil {
+    margin-right: 20px;
+}
+
+.main .foto-perfil img {
+    max-width: 150px; /* Tamaño máximo de imagen para la sección .main */
+}
+
+.texto .foto-perfil img {
+    max-width: 75px; /* Tamaño máximo de imagen para la sección .texto */
+}
+
+.texto-contenido {
+    flex-grow: 1;
+}
+

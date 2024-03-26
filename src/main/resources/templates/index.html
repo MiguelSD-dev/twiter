@@ -2,37 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index</title>
     <link rel="stylesheet" href="/css/index.css">
 </head>
+
 <body>
-
-
-<div class="header">
-    <img th:src="@{/img/logo.png}" alt="Logo de la Empresa">
-    <div>
-        <button class="registro-btn">Registrarse</button>
+    <div class="header">
+        <img th:src="@{/img/logo.png}" alt="Logo de la Empresa">
+        <div>
+            <button onclick="window.location.href='login.html'" class="login-btn">Iniciar sesión</button>
+        </div>
     </div>
-</div>
-<div class="contenido">
-    <div class="texto">
-        <h2>Título del primer div</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus, magna id varius vehicula, velit justo
-            efficitur sapien, nec pellentesque leo metus nec quam.</p>
+    <div class="contenido">
+        <div class="texto">
+            <div class="foto-perfil">
+                <!-- Aquí puedes colocar tu imagen de perfil -->
+                <img src="/img/patata.jpg" alt="Foto de perfil">
+            </div>
+            <div class="texto-contenido">
+                <h2>Título del primer div</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rutrum nulla. Nullam at erat orci. Nullam sit amet varius urna. Suspendisse potenti. Donec ultricies enim eu enim ultricies, non gravida ante convallis. Maecenas purus nisi, laoreet sit amet interdum egeta, lorem.</p>
+            </div>
+        </div>
+        <div class="texto">
+            <div class="foto-perfil">
+                <!-- Aquí puedes colocar tu imagen de perfil -->
+                <img src="/img/patata.jpg" alt="Foto de perfil">
+            </div>
+            <div class="texto-contenido">
+                <h2>Título del segundo div</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rutrum nulla. Nullam at erat orci. Nullam sit amet varius urna. Suspendisse potenti. Donec ultricies enim eu enim ultricies, non gravida ante convallis. Maecenas purus nisi, laoreet sit amet interdum egeta, lorem.</p>
+            </div>
+        </div>
+        <div class="texto">
+            <div class="foto-perfil">
+                <!-- Aquí puedes colocar tu imagen de perfil -->
+                <img src="/img/patata.jpg" alt="Foto de perfil">
+            </div>
+            <div class="texto-contenido">
+                <h2>Título del tercer div</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rutrum nulla. Nullam at erat orci. Nullam sit amet varius urna. Suspendisse potenti. Donec ultricies enim eu enim ultricies, non gravida ante convallis. Maecenas purus nisi, laoreet sit amet interdum egeta, lorem.</p>
+            </div>
+        </div>
     </div>
-    <div class="separador"></div>
-    <div class="texto">
-        <h2>Título del segundo div</h2>
-        <p>Ut aliquet erat nec dolor consequat, quis interdum turpis dictum. Vivamus sit amet nisl non justo lacinia
-            vestibulum eu in massa.</p>
-    </div>
-    <div class="separador"></div>
-    <div class="texto">
-        <h2>Título del tercer div</h2>
-        <p>Maecenas lobortis justo vitae felis varius, id scelerisque arcu tincidunt. Integer vel feugiat libero, at
-            consectetur quam. </p>
-    </div>
-</div>
 </body>
 
 </html>

@@ -43,6 +43,10 @@ public class UserService implements UserDetailsService {
                 getAuthorities(user.getRol_id())
         );
     }
+    public User getUserByUsername(String username){
+        User user = userRepository.findByUsername(username);
+        return user;
+    }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Integer idrol) {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
@@ -59,6 +63,7 @@ public class UserService implements UserDetailsService {
         user.setRol_id(2);
 
         User newUser = userRepository.save(user);
+
 
     }
 }

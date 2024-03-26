@@ -14,10 +14,8 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    @Column(name = "enabled")
-    private Boolean enabled;
-
     private Integer rol_id;
+    private Boolean enabled;
 
 
     public User() {
