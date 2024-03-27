@@ -14,34 +14,14 @@
         </div>
     </div>
     <div class="contenido">
-        <div class="texto">
+        <div class="texto" th:each="twit : ${twits}">
             <div class="foto-perfil">
                 <!-- Aquí puedes colocar tu imagen de perfil -->
                 <img src="/img/patata.jpg" alt="Foto de perfil">
             </div>
             <div class="texto-contenido">
-                <h2>Título del primer div</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rutrum nulla. Nullam at erat orci. Nullam sit amet varius urna. Suspendisse potenti. Donec ultricies enim eu enim ultricies, non gravida ante convallis. Maecenas purus nisi, laoreet sit amet interdum egeta, lorem.</p>
-            </div>
-        </div>
-        <div class="texto">
-            <div class="foto-perfil">
-                <!-- Aquí puedes colocar tu imagen de perfil -->
-                <img src="/img/patata.jpg" alt="Foto de perfil">
-            </div>
-            <div class="texto-contenido">
-                <h2>Título del segundo div</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rutrum nulla. Nullam at erat orci. Nullam sit amet varius urna. Suspendisse potenti. Donec ultricies enim eu enim ultricies, non gravida ante convallis. Maecenas purus nisi, laoreet sit amet interdum egeta, lorem.</p>
-            </div>
-        </div>
-        <div class="texto">
-            <div class="foto-perfil">
-                <!-- Aquí puedes colocar tu imagen de perfil -->
-                <img src="/img/patata.jpg" alt="Foto de perfil">
-            </div>
-            <div class="texto-contenido">
-                <h2>Título del tercer div</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rutrum nulla. Nullam at erat orci. Nullam sit amet varius urna. Suspendisse potenti. Donec ultricies enim eu enim ultricies, non gravida ante convallis. Maecenas purus nisi, laoreet sit amet interdum egeta, lorem.</p>
+                <h2 th:text="${twit.getUser_id()}"></h2>
+                <p th:text="${twit.getTwitext()}"></p>
             </div>
         </div>
     </div>

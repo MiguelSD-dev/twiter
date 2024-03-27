@@ -5,13 +5,12 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="twit")
+@Table(name = "twit")
 public class Twit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String twitext;
-
     private Integer user_id;
     private Date date;
 
@@ -25,7 +24,6 @@ public class Twit {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
 
     public Integer getUser_id() {

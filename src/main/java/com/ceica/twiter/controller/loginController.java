@@ -27,14 +27,6 @@ public class loginController {
         return "register";
     }
 
-    @PostMapping("/register")
-    public String postRegister(@ModelAttribute User user) {
-        //Encriptar contraseña
-        user.setPassword(user.getPassword());
-        user.setEnabled(true);
-        userService.crearUsuario(user);
-        System.out.println(user);
-        return "register";
-    }
+
 
 }
