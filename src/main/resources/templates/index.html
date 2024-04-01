@@ -16,11 +16,13 @@
     <div class="contenido">
         <div class="texto" th:each="twit : ${twits}">
             <div class="foto-perfil">
-                <!-- Aquí puedes colocar tu imagen de perfil -->
-                <img src="/img/patata.jpg" alt="Foto de perfil">
+                <!-- Verifica si el campo 'img' del usuario no está vacío -->
+                <img th:if="${not #strings.isEmpty(twit.getUser().getUserimg())}" th:src="${'user/image/'+twit.getUser().getUserimg()}" alt="Foto de perfil"/>
+                <!-- Si el campo 'img' está vacío, muestra una imagen por defecto -->
+                <img th:unless="${not #strings.isEmpty(twit.getUser().getUserimg())}" src="/img/patata.jpg" alt="Foto de perfil vacio"/>
             </div>
             <div class="texto-contenido">
-                <h2 th:text="${twit.getUser_id()}"></h2>
+                <h2 th:text="${twit.getUser().getUsername()}"></h2>
                 <p th:text="${twit.getTwitext()}"></p>
             </div>
         </div>

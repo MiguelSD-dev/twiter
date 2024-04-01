@@ -15,6 +15,7 @@ public class User {
     private String username;
     private String password;
     private Integer rol_id;
+    private String userimg;
     private Boolean enabled;
 
 
@@ -35,6 +36,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getUserimg() {
+        return userimg;
+    }
+
+    public void setUserimg(String userimg) {
+        this.userimg = userimg;
     }
 
     public String getPassword() {

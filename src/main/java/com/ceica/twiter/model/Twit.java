@@ -11,7 +11,9 @@ public class Twit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String twitext;
-    private Integer user_id;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userid", referencedColumnName = "id")
+    private User user;
     private Date date;
 
     public Twit() {
@@ -25,13 +27,12 @@ public class Twit {
         this.id = id;
     }
 
-
-    public Integer getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getDate() {
@@ -55,7 +56,7 @@ public class Twit {
         return "Twit{" +
                 "id=" + id +
                 ", twitext='" + twitext + '\'' +
-                ", user_id=" + user_id +
+                ", user=" + user +
                 ", date=" + date +
                 '}';
     }

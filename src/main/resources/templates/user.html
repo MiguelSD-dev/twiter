@@ -7,39 +7,70 @@
 </head>
 
 <body>
-    <div class="header">
-        <a href="/">
-            <img th:src="@{/img/logo.png}" alt="Logo de la Empresa">
-        </a>
-        <div>
-            <button class="exit-btn">Exit</button>
-        </div>
+<div class="header">
+    <a href="/">
+        <img th:src="@{/img/logo.png}" alt="Logo de la Empresa">
+    </a>
+    <div>
+        <button class="exit-btn">Exit</button>
     </div>
-    <div class="contenido">
-        <div class="main">
-            <div class="foto-perfil">
-                <img src="/img/patata.jpg" alt="Foto de perfil">
-            </div>
-            <div class="newtwit">
-                <form th:action="@{/publicar}" method="post">
-                    <textarea name="twit" placeholder="Escribe aquí tu texto..."></textarea>
-                    <input type="submit" value="Publicar" class="publicar-btn">
+</div>
+<div class="contenido">
+    <div class="main">
+        <div class="foto-perfil">
+            <!-- Verifica si el campo 'img' del usuario no está vacío -->
+            <img id="profile-img" th:if="${not #strings.isEmpty(user.getUserimg())}" th:src="${'user/image/'+user.getUserimg()}"
+                 alt="Foto de perfil" onclick="showForm()"/>
+            <!-- Si el campo 'img' está vacío, muestra una imagen por defecto -->
+            <img id="profile-img" th:unless="${not #strings.isEmpty(user.getUserimg())}" src="/img/patata.jpg"
+                 alt="Foto de perfil vacio" onclick="showForm()"/>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeForm()">&times;</span>
+                <form id="image-form" th:action="@{newimageuser}" enctype="multipart/form-data" method="post">
+                    <input type="file" name="imageUser" id="">
+                    <input type="submit" value="Enviar" class="publicar-btn">
                 </form>
             </div>
         </div>
-
-        <div class="separador"></div>
-
-        <div class="texto" th:each="twit : ${twits}">
-            <div class="foto-perfil">
-                <!-- Aquí puedes colocar tu imagen de perfil -->
-                <img src="/img/patata.jpg" alt="Foto de perfil">
-            </div>
-            <div class="texto-contenido">
-                <h2 th:text="${twit.getUser_id()}"></h2>
-                <p th:text="${twit.getTwitext()}"></p>
-            </div>
+        <div class="newtwit">
+            <form th:action="@{/publicar}" method="post">
+                <textarea name="twit" placeholder="Escribe aquí tu texto..."></textarea>
+                <input type="submit" value="Publicar" class="publicar-btn">
+            </form>
         </div>
     </div>
+
+    <div class="separador"></div>
+
+    <div class="texto" th:each="twit : ${twits}">
+        <div class="foto-perfil">
+            <!-- Verifica si el campo 'img' del usuario no está vacío -->
+            <img th:if="${not #strings.isEmpty(twit.getUser().getUserimg())}"
+                 th:src="${'user/image/'+twit.getUser().getUserimg()}" alt="Foto de perfil"/>
+            <!-- Si el campo 'img' está vacío, muestra una imagen por defecto -->
+            <img th:unless="${not #strings.isEmpty(twit.getUser().getUserimg())}" src="/img/patata.jpg"
+                 alt="Foto de perfil vacio"/>
+        </div>
+        <div class="texto-contenido">
+            <h2 th:text="${twit.getUser().getUsername()}"></h2>
+            <p th:text="${twit.getTwitext()}"></p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function showForm() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+    }
+
+    function closeForm() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collections;
 import java.util.Date;
@@ -34,8 +35,9 @@ public class userController {
         String username = authentication.getName();
         User user = userService.getUserByUsername(username);
 
-        List<Twit> twitList = twitService.getTwitsByUserId(user.getId());
+        List<Twit> twitList = twitService.getTwitsByUser(user);
         model.addAttribute("twits", twitList);
+        model.addAttribute("user", user);
         return "user";
     }
 
@@ -46,9 +48,20 @@ public class userController {
         User user = userService.getUserByUsername(username);
         Twit twit1 = new Twit();
         twit1.setTwitext(twit);
-        twit1.setUser_id(user.getId());
+
+
+        twit1.setUser(user);
+
         twit1.setDate(new Date());
         twitService.save(twit1);
+        return "redirect:/user";
+    }
+    @PostMapping("/newimageuser")
+    public String newimageUser(@RequestParam MultipartFile imageUser){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userService.getUserByUsername(username);
+        userService.actualizarFoto(imageUser,user);
         return "redirect:/user";
     }
 }

@@ -1,6 +1,7 @@
 package com.ceica.twiter.service;
 
 import com.ceica.twiter.model.Twit;
+import com.ceica.twiter.model.User;
 import com.ceica.twiter.repository.TwitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,8 @@ public class TwitService {
        twitRepository.save(twit1);
     }
 
-    public List<Twit> getTwitsByUserId(Integer user_id) {
+    public List<Twit> getTwitsByUser(User user) {
         // Implementa la lógica para recuperar los Twits asociados con el usuario por su ID
-        return twitRepository.findByUser_idOrderByDateDesc(user_id);
+        return twitRepository.findByUserOrderByDateDesc(user);
     }
 }
