@@ -46,14 +46,11 @@ public class SecurityConfig {
                         .successHandler(authenticationSuccessHandler)
                         .permitAll()
                 )
-                .logout((logout) -> logout.permitAll());
-        // Ignorar los archivos estáticos
-
+                .logout((logout) -> logout
+                        .logoutUrl("/logout") // Especificar la URL de cierre de sesión
+                        .logoutSuccessUrl("/") // Redirigir al usuario a la página de inicio después de cerrar sesión
+                        .permitAll()
+                );
         return http.build();
     }
-
-
-
-
-
 }

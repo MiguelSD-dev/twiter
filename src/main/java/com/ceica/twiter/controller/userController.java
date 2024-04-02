@@ -48,10 +48,7 @@ public class userController {
         User user = userService.getUserByUsername(username);
         Twit twit1 = new Twit();
         twit1.setTwitext(twit);
-
-
         twit1.setUser(user);
-
         twit1.setDate(new Date());
         twitService.save(twit1);
         return "redirect:/user";
@@ -64,4 +61,5 @@ public class userController {
         userService.actualizarFoto(imageUser,user);
         return "redirect:/user";
     }
+
 }

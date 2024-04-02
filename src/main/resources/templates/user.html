@@ -12,7 +12,7 @@
         <img th:src="@{/img/logo.png}" alt="Logo de la Empresa">
     </a>
     <div>
-        <button class="exit-btn">Exit</button>
+        <a href="/logout"><button class="btn exit">Exit</button></a>
     </div>
 </div>
 <div class="contenido">
@@ -22,7 +22,7 @@
             <img id="profile-img" th:if="${not #strings.isEmpty(user.getUserimg())}" th:src="${'user/image/'+user.getUserimg()}"
                  alt="Foto de perfil" onclick="showForm()"/>
             <!-- Si el campo 'img' está vacío, muestra una imagen por defecto -->
-            <img id="profile-img" th:unless="${not #strings.isEmpty(user.getUserimg())}" src="/img/patata.jpg"
+            <img id="profile-img" th:unless="${not #strings.isEmpty(user.getUserimg())}" src="/img/noimg.png"
                  alt="Foto de perfil vacio" onclick="showForm()"/>
         </div>
         <div id="myModal" class="modal">
@@ -30,14 +30,14 @@
                 <span class="close" onclick="closeForm()">&times;</span>
                 <form id="image-form" th:action="@{newimageuser}" enctype="multipart/form-data" method="post">
                     <input type="file" name="imageUser" id="">
-                    <input type="submit" value="Enviar" class="publicar-btn">
+                    <input type="submit" value="Enviar" class="btn">
                 </form>
             </div>
         </div>
         <div class="newtwit">
             <form th:action="@{/publicar}" method="post">
                 <textarea name="twit" placeholder="Escribe aquí tu texto..."></textarea>
-                <input type="submit" value="Publicar" class="publicar-btn">
+                <input type="submit" value="Publicar" class="btn">
             </form>
         </div>
     </div>
